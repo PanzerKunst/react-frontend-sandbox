@@ -1,6 +1,6 @@
 type Config = {
-  readonly IS_PROD: boolean;
-  readonly BACKEND_URL: string;
+  readonly IS_PROD: boolean,
+  readonly BACKEND_URL: string,
 }
 
 export const config: Config = {
