@@ -1,0 +1,41 @@
+@import "./functions";
+
+$vw-sm: 320px;
+$vw-md: 640px;
+$vw-lg: 960px;
+$vw-xl: 1280px;
+$vw-xxl: 1600px;
+
+$min-content-side-margin: 16px;
+
+$list-padding-left: 28px;
+
+$border-radius-md: 6px;
+$border-radius-lg: 12px;
+
+$animation-duration-xs: 0.1;
+$animation-duration-sm: 0.3;
+$animation-duration-md: 0.7;
+
+$z-index-joy-input-focused-border: 1;
+$z-index-header: $z-index-joy-input-focused-border + 1;
+$z-index-tooltip: $z-index-header + 1;
+$z-index-select-list: $z-index-tooltip + 1;
+$z-index-menu-backdrop: $z-index-select-list + 1;
+$z-index-menu: $z-index-menu-backdrop + 1;
+
+$header-height: 60px;
+
+$input-padding-inline: max(0.5em, 18px);
+
+$default-field-gap: 3vmin;
+
+$variable-font-size-xxl: variable-font(36, 96);
+$variable-font-size-xl: variable-font(24, 48);
+$variable-font-size-lg: variable-font(20, 32);
+$variable-font-size-md: variable-font(16, 24);
+$variable-font-size-sm: variable-font(16, 20);
+$variable-font-size-xs: variable-font(14, 16);
+$variable-font-size-xxs: variable-font(12, 14);
+
+$hero-picture-min-height: 500px;

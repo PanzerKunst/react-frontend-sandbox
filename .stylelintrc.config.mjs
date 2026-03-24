@@ -1,0 +1,24 @@
+export default {
+  extends: [
+    "stylelint-config-standard"
+  ],
+  overrides: [
+    {
+      files: ["**/*.scss"],
+      extends: [
+        "stylelint-config-standard-scss",
+        "stylelint-config-css-modules"
+      ],
+      rules: {
+        "at-rule-empty-line-before": null,
+        "custom-property-empty-line-before": null,
+        "declaration-block-no-redundant-longhand-properties": null,
+        "declaration-empty-line-before": null,
+        "max-nesting-depth": 5,
+        "no-descending-specificity": null,
+        "selector-class-pattern": null,
+        "scss/dollar-variable-empty-line-before": null
+      }
+    }
+  ]
+};

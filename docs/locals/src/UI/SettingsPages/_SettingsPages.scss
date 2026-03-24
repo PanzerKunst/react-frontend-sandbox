@@ -1,0 +1,23 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.page.settings > main {
+  > section > h2 {
+    font-size: $variable-font-size-md;
+    margin-bottom: 1em;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 3vmin;
+  }
+
+  .MuiFormControl-root {
+    margin-bottom: 3vmin;
+  }
+
+  .MuiSnackbar-colorNeutral.app-snackbar > svg {
+    color: $color-icon-success;
+  }
+}

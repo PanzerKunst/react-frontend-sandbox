@@ -1,0 +1,21 @@
+@use "/src/UI/_CommonStyles/mixins" as *;
+
+.app-header-wrapper {
+  > header {
+    position: fixed;
+    z-index: $z-index-header;
+    width: 100%;
+    height: $header-height;
+    background-color: $color-header-bg;
+    padding-inline: 8vw;
+
+    display: flex;
+    align-items: center;
+
+    @include drop-shadow(md);
+
+    > a > img {
+      @include img-size(24px);
+    }
+  }
+}

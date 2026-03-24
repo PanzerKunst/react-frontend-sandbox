@@ -1,0 +1,19 @@
+@use "/src/UI/_CommonStyles/mixins" as *;
+
+.container {
+  margin-inline: auto;
+  padding-inline: $min-content-inline-margin;
+
+  @include vw(md) {
+    padding-inline: 0;
+    width: 75%;
+  }
+
+  @include vw(xl) {
+    width: 1216px;
+  }
+}
+
+.page > main {
+  margin-block: $main-block-margin;
+}

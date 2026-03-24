@@ -1,0 +1,19 @@
+@import "/src/UI/_CommonStyles/numbers";
+
+.app-snackbar.cookie {
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    > div {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1em;
+
+      > button.underlined {
+        font-size: 18px;
+      }
+    }
+  }
+}

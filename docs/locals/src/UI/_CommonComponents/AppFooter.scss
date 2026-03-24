@@ -1,0 +1,58 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.app-footer {
+  background-color: $color-footer-bg;
+
+  > .container {
+    $elements-gap: 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $elements-gap;
+
+    padding-block: 10vh;
+
+    @include header-footer-text;
+    text-transform: uppercase;
+
+    @include vw(md) {
+      flex-direction: row;
+    }
+
+    > nav {
+      margin-top: 0.5em; // To visially vertically align with the logo
+
+      > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+
+        @include vw(md) {
+          align-items: flex-end;
+        }
+      }
+    }
+
+    > div {
+      @include vw(md) {
+        order: -1;
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > img {
+        flex-basis: 4em;
+        margin: 0 auto 1em;
+      }
+
+      > span {
+        text-align: center;
+        line-height: 1.5em;
+      }
+    }
+  }
+}

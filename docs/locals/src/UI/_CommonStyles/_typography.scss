@@ -1,0 +1,54 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: $variable-font-size-xxl;
+}
+
+h2 {
+  font-size: $variable-font-size-xl;
+}
+
+h3 {
+  font-size: $variable-font-size-lg;
+}
+
+p,
+span {
+  &.offset {
+    opacity: 0.5;
+  }
+
+  &.danger {
+    color: $color-danger;
+  }
+}
+
+p,
+blockquote {
+  font-size: $variable-font-size-sm;
+  line-height: 1.4em;
+  margin-bottom: 1.5em;
+}
+
+span.underlined {
+  @include underlined;
+}

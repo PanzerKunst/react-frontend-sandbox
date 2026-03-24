@@ -1,0 +1,80 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.app-header-wrapper {
+  > header {
+    position: fixed;
+    z-index: $z-index-header;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    height: $header-height;
+    background-color: $color-header-bg;
+    padding-inline: $min-content-side-margin;
+
+    > .image-placeholder {
+      flex-basis: 40px;
+    }
+
+    > h2 {
+      font-weight: 400;
+      font-size: $variable-font-size-md;
+    }
+
+    > a.underlined {
+      @include header-footer-text;
+    }
+
+    > .button.icon-only > img {
+      @include img-size(40px);
+      border-radius: 50%;
+    }
+
+    &.mobile {
+      @include drop-shadow(top);
+      transition: bottom #{$animation-duration-xs}s linear;
+    }
+
+    &.desktop-or-landing {
+      @include drop-shadow;
+      transition: top #{$animation-duration-xs}s linear,
+        background-color #{$animation-duration-md}s ease;
+
+      &.dark {
+        background-color: $color-header-bg-dark;
+
+        > a.underlined {
+          transition: all #{$animation-duration-sm}s ease; // Same duration as in `@mixin underlined`
+          color: $color-text-negative;
+        }
+      }
+    }
+
+    &.menu-open {
+      padding-right: calc($min-content-side-margin + var(--scrollbar-width));
+    }
+  }
+
+  > ul.styleless.menu {
+    position: fixed;
+
+    font-size: variable-font(20, 24);
+
+    @include vw(sm) {
+      bottom: $header-height - 5px;
+      left: 0;
+      width: 100%;
+
+      border-radius: 0;
+      @include drop-shadow(all-around-top);
+    }
+
+    @include vw(md) {
+      top: $header-height - 5px;
+      right: 10px;
+    }
+  }
+}

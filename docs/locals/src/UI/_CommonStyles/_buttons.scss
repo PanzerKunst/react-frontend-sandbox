@@ -1,0 +1,185 @@
+@import "./colors";
+@import "./numbers";
+@import "./mixins";
+
+$min-button-size: 40px;
+
+@mixin button-reset {
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+}
+
+button.button:not([role="tab"]),
+a.button:not([role="tab"]) {
+  @include button-reset;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: $min-button-size;
+  min-width: $min-button-size;
+
+  color: $color-btn-text;
+}
+
+button.button:not(.icon-only),
+a.button:not(.icon-only) {
+  @include to-right-red-gradient;
+  background-size: 0 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  transition: all #{$animation-duration-sm}s ease; // background-size color translateY
+
+  font-size: $variable-font-size-sm;
+  font-weight: 400;
+  color: $color-btn-text-pre-filled;
+
+  padding-inline: 0.7em;
+  border-radius: max(0.1em, 3px);
+
+  &:not([disabled], :active):hover {
+    transform: translateY(-1px);
+  }
+
+  &.filling,
+  &.filled {
+    background-size: 100% 100%;
+    color: $color-btn-text;
+  }
+
+  &.rounded {
+    border-radius: 1.2em;
+  }
+
+  &.transparent {
+    background-image: none;
+    color: $color-btn-text-transparent-btn;
+
+    &:not([disabled]):hover {
+      background-color: $color-btn-bg-transparent-hover;
+    }
+  }
+
+  &.danger {
+    background-image: none;
+    background-color: $color-btn-bg-danger;
+  }
+
+  /* &.transparent-bordered {
+    color: $color-btn-text-pre-filled;
+    background-image: none;
+    border: 0.1em solid $color-btn-border;
+
+    &:hover {
+      color: $color-btn-text;
+      @include to-right-red-gradient;
+      background-size: 100% 100%;
+      border-color: transparent;
+    }
+  } */
+
+  &.stripe {
+    color: $color-btn-text;
+    background: $color-btn-bg-stripe;
+  }
+
+  > span {
+    padding-block: 0.35em 0.4em;
+  }
+
+  &.lg {
+    font-size: $variable-font-size-lg;
+  }
+
+  &.fixed-height { // Used in modals
+    font-size: 18px;
+    border-width: 2px;
+
+    > span {
+      padding-block: 0;
+    }
+  }
+
+
+  // Left icon
+
+  > svg,
+  > img {
+    margin-right: 0.5em;
+  }
+
+  > svg {
+    color: $color-icon-light;
+  }
+
+
+  // Loader
+
+  &.loading { // Because `&:has(> .circular-loader) {` isn't supported on Firefox
+    position: relative;
+
+    > .circular-loader {
+      position: absolute;
+
+      > .MuiCircularProgress-root .MuiCircularProgress-progress {
+        stroke: $color-btn-text;
+      }
+    }
+
+    > span {
+      visibility: hidden;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+  }
+}
+
+a.button {
+  text-decoration: none;
+}
+
+.button.icon-only {
+  border-radius: 50%;
+
+  > svg {
+    color: $color-icon-dark;
+  }
+
+  &.offset-bg-on-hover:hover {
+    background-color: $color-btn-bg-icon-only-dark-hover;
+  }
+
+  &.light {
+    > svg {
+      color: $color-icon-light;
+    }
+
+    &.offset-bg-on-hover:hover {
+      background-color: $color-btn-bg-icon-only-light-hover;
+    }
+  }
+
+  &:not(:hover).bordered {
+    border: 2px solid $color-icon-dark;
+
+    &.light {
+      border-color: $color-icon-light;
+    }
+  }
+}
+
+button.underlined {
+  @include button-reset;
+  color: $color-link;
+  font-size: $variable-font-size-sm;
+  @include underlined;
+}

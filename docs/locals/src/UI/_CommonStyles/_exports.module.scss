@@ -1,0 +1,20 @@
+@import "colors";
+@import "numbers";
+
+:export {
+  vwMd: $vw-md;
+  vwLg: $vw-lg;
+  vwXl: $vw-xl;
+  vwXxl: $vw-xxl;
+
+  animationDurationXs: $animation-duration-xs;
+  animationDurationSm: $animation-duration-sm;
+  animationDurationMd: $animation-duration-md;
+
+  colorDanger: $color-danger;
+  colorIconDark: $color-icon-dark;
+  colorInputPlaceholder: $color-input-placeholder;
+
+  headerHeight: $header-height;
+  heroPictureMinHeight: $hero-picture-min-height;
+}

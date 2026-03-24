@@ -1,0 +1,34 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+ul.styleless.menu {
+  position: absolute;
+  z-index: $z-index-menu;
+  width: auto;
+
+  background-color: $color-app-bg;
+  font-size: $variable-font-size-sm;
+  line-height: 2em;
+
+  @include drop-shadow(all-around);
+  border-radius: $border-radius-md;
+  overflow: hidden; // To avoid the rounded corners to be killed on hover
+
+  > li {
+    padding-inline: 0.7em;
+    cursor: pointer;
+
+    transition: background-color #{$animation-duration-sm}s ease;
+
+    &:hover {
+      background-color: $color-menu-item-bg-hover;
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    > svg {
+      @include img-size(0.8em);
+    }
+  }
+}

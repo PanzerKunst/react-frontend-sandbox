@@ -1,0 +1,50 @@
+@import "/src/UI/_CommonStyles/colors";
+@import "/src/UI/_CommonStyles/numbers";
+
+.tooltip {
+  position: absolute;
+  z-index: $z-index-tooltip;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  font-size: 16px;
+  color: $color-text-negative;
+
+  background-color: $color-tooltip-bg;
+  border-radius: $border-radius-md;
+
+  // Arrow styling
+  $border-width: 10px;
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-width: $border-width;
+    border-style: solid;
+  }
+
+  &.top::after {
+    bottom: -#{($border-width * 2) - 1}; // 1px to overlap the tooltip
+    border-color: $color-tooltip-bg transparent transparent transparent; // Only top border is colored
+  }
+
+  &.bottom::after {
+    top: -#{($border-width * 2) - 1}; // 1px to overlap the tooltip
+    border-color: transparent transparent $color-tooltip-bg transparent; // Only bottom border is colored
+  }
+
+  &.text > span {
+    padding-left: 0.5em;
+    cursor: default;
+  }
+
+  &.input .MuiFormControl-root .MuiInput-root {
+    font-size: $variable-font-size-xs;
+  }
+}

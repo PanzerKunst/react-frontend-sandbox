@@ -1,0 +1,37 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+ul.styleless.select {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: $z-index-select-list;
+
+  margin-top: 0.3em;
+
+  border-radius: $border-radius-md;
+  background-color: $color-list-item-bg;
+
+  font-size: $variable-font-size-sm;
+  line-height: max(2em, 40px);
+
+  &.closed {
+    display: none;
+  }
+
+  > li {
+    transition: background-color #{$animation-duration-sm}s ease;
+    padding-inline: $input-padding-inline;
+
+    &:hover {
+      background-color: $color-list-item-bg-hover;
+    }
+  }
+
+  &:not(.loading) {
+    @include drop-shadow(all-around);
+
+    > li {
+      cursor: pointer;
+    }
+  }
+}

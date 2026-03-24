@@ -1,0 +1,6 @@
+@use "/src/UI/_CommonStyles/mixins" as *;
+
+.app-footer {
+  background-color: $color-footer-bg;
+  padding-block: 2em;
+}

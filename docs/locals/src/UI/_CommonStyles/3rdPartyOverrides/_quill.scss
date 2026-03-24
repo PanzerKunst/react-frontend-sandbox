@@ -1,0 +1,27 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border: none;
+  font-family: inherit;
+}
+
+.ql-toolbar.ql-snow {
+  display: flex;
+  justify-content: center;
+}
+
+.ql-container.ql-snow > .ql-editor {
+  @include quill-editor;
+
+  background-color: $color-input-bg;
+  padding: $input-padding-inline;
+  border-radius: $border-radius-md;
+
+  min-height: 300px;
+
+  &.ql-blank::before { // Placeholder
+    font-size: $variable-font-size-sm;
+    color: $color-input-placeholder;
+  }
+}

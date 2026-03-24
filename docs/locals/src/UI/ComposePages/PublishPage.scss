@@ -1,0 +1,23 @@
+@import "/src/UI/_CommonStyles/colors";
+@import "/src/UI/_CommonStyles/numbers";
+
+.page.publish > main {
+  container-type: inline-size;
+
+  .MuiFormLabel-root {
+    font-size: $variable-font-size-md;
+  }
+
+  > .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: $default-field-gap;
+
+    margin-top: 5vmin;
+
+    > a.underlined {
+      font-size: $variable-font-size-sm;
+    }
+  }
+}

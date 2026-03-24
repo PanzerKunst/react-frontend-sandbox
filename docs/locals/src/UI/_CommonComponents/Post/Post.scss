@@ -1,0 +1,117 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+article.post {
+  @include vw(sm) {
+    margin-top: 2vmax;
+  }
+
+  h1 {
+    font-size: variable-font(20, 40);
+    font-weight: 700;
+    @include justify-text-on-large-screen;
+
+    margin-bottom: 1em;
+  }
+
+  > .metadata,
+  > .hero,
+  > .content {
+    margin-bottom: 3vmax;
+  }
+
+  > .metadata {
+    display: flex;
+    flex-direction: column;
+
+    font-size: $variable-font-size-xs;
+    color: $color-text-offset;
+
+    @include vw(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    > .author-and-publication-date {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+
+      img {
+        @include img-size(40px);
+        @include vw(lg) {
+          @include img-size(44px);
+        }
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+
+        > div {
+          display: flex;
+          align-items: center;
+
+          &.author-and-follow > button {
+            font-size: $variable-font-size-xs;
+          }
+
+          > .separator {
+            margin-inline: 0.7em;
+          }
+        }
+      }
+    }
+
+    > .likes-comments-share,
+    > ul.artist-tags {
+      display: none;
+    }
+
+    .likes-comments-share > .button.transparent.rounded {
+      font-size: $variable-font-size-xs;
+
+      &:first-of-type {
+        margin-left: -0.7em;
+      }
+
+      > svg {
+        @include img-size(20px);
+      }
+
+      @include vw(lg) {
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        > svg {
+          @include img-size(24px);
+        }
+      }
+    }
+
+    > .mobile-only {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-top: 2vmax;
+    }
+
+    @include vw(lg) {
+      > .likes-comments-share,
+      > ul.artist-tags {
+        display: unset;
+      }
+
+      > .mobile-only {
+        display: none;
+      }
+    }
+  }
+
+  > .content > div {
+    @include quill-editor;
+  }
+}
