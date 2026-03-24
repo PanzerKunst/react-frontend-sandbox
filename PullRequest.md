@@ -8,10 +8,7 @@ Following a Pull Request implementation, run the "lint" script declared in packa
 
 # The task to work on
 
-While keeping a codebase structure close to the example apps in `docs`, cleanup the current code in `src` so that it compiles, and is minimalistic. For example, remove a lot of markup in LandingPage.tsx, which was copy/pasted from an example app.
+Taking example on `docs/antler-project-marketing/src/config.ts`, add a similar file to `/src`
+Then, add `/.env`, populating the backend URL to "http://localhost:9000"
 
-## Context clarifications
-
-- _CommonStyles/ should be added to the app, with global-level files such as mixins. `$color-app-bg` are needed and should be added too. Same values as the example app `antler-project-marketing`.
-- AppFooter and AppHeader need to be added, from the example app `antler-project-marketing`
-- Other missing components in the current code of LandingPage.tsx should be removed
+Inside LandingPage.tsx, we'll do an API call to the backend at address "/", expecting a String (not JSON). Then display that string inside a `<p>` under the `<h1>`.
