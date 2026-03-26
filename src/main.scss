@@ -1,3 +1,9 @@
+// 3rd-party, Mantine excluded
+@use "/node_modules/normalize.css/normalize.css";
+
+// 3rd party overrides
+@use "UI/_CommonStyles/3rdPartyOverrides/mantine";
+
 // App globals
 @use "UI/_CommonStyles/buttons";
 @use "UI/_CommonStyles/embeds";
