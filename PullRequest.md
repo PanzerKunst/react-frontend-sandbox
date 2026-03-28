@@ -8,10 +8,32 @@ Following a Pull Request implementation, run the "lint" script declared in packa
 
 # The task to work on
 
-The backend has been updated to feature 2 more endpoints (see `docs\typescript-backend-sandbox\src\Routes\BankIdRoutes.ts`.
+## Step 1 (done)
 
-We'll update `BankIdAuth.tsx` to follow that flow:
-- When page loads, we display the QR code. Below it, let's add a button "Similate authentication". When it's clicked, the frontend calls endpoint "/bank-id/authenticating", and if the call is successful:
-  o The QR code is replaced by a message "Authenticating".
-  o The button is replaced by "Simulate completion"
-- When the "Simulate completion" button is clicked, the frontend calls endpoint "/bank-id/completing", and if the call is successful, the user is redirected to a new page we're adding: "UI/Investments.tsx", blank for now. When completion is successful, the redirection to "Investments.tsx" should not be a new item in the browsing history. That's because if the user clicks navigates back, we want them to skip the bank ID page.
+Look at the updated `docs\typescript-backend-sandbox\src\Routes\SessionRoutes.ts`, as we'll use the second endpoint.
+
+I made a mistake in the current logic. `LandingPage.tsx` should not fetch a new session ID each time. The correct logic is:
+- If a session ID is present in context, call endpoint `/session/check`, and if it returns OK, do nothing else (current session ID is legit). If it returns NO_CONTENT, we clear the value in context and request a new session ID.
+- If no session ID is present in context, we simply request one.
+
+## Step 2 (done)
+
+I've added more files in `src/Util`. Instead of writing HTTP codes as numbers, leverage the `httpStatusCode` variable.
+
+## Step 3 (done)
+
+Look at the updated `docs\typescript-backend-sandbox\src`. It contains a new endpoint `investments`. The models corresponding to the JSON response have been added to `src\Data\Backend\Models`.
+
+On page `Investments.tsx`, we want to display the investment information returned by the endpoint. This endpoint may return HTTP status Unauthorized. If it's the case, the user should be redirected to the landing page, replading URL `/investments` in the browsing history.
+
+## Step 4 (done)
+
+We need to replace the "BankID Authentication" link on the landing page, with "Display my investments". The flow should be:
+- If the Investments page can be displayed, it should be.
+- Else, the user should be redirected to the mock Bank ID authentication page-
+
+Is there a clean way to implement that flow?
+
+## Step 5
+
+I've tested the above, and it's a bit clunky. The issue is that in case of an "Unauthorized" response, the Investment page is displayed with only the heading. Instead, the user should be immediately redirected to the landing page. On top of that, due to how Tanstack Query works, upon 401, the request is retried 3 more times before redirection to `/bank-id`. In case of 401, there should not be any retries, the user should not see any "Investment" heading.

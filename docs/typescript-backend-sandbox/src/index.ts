@@ -3,6 +3,7 @@ import express, {Router} from "express"
 import {config} from "./config.js"
 import {sessionRoutes} from "./Routes/SessionRoutes.js"
 import {bankIdRoutes} from "./Routes/BankIdRoutes.js"
+import {investmentRoutes} from "./Routes/InvestmentRoutes.js"
 
 const app = express()
 const port = config.PORT
@@ -27,6 +28,7 @@ const corsOptions: cors.CorsOptions = {
 
 // Enable CORS with the above options
 app.use(cors(corsOptions))
+app.use(express.json())
 
 
 // Router
@@ -35,6 +37,7 @@ const router = Router()
 
 sessionRoutes(router)
 bankIdRoutes(router)
+investmentRoutes(router)
 
 app.use(router)
 

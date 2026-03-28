@@ -1,4 +1,13 @@
-# TypeScript React sandbox
+# Insurely Code case - React SPA frontend (TypeScript)
+
+## How to run it
+
+In order to run the backend, you should create an `.env` file at the root of the project. For example:
+```
+VITE_BACKEND_URL=http://localhost:3000
+```
+
+## Other information
 
 This is a sandbox for prototyping React Single-Page applications written in TypeScript. It is based on the following tech stack:
 - Vite bundler
