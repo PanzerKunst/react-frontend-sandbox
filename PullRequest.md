@@ -8,12 +8,10 @@ Following a Pull Request implementation, run the "lint" script declared in packa
 
 # The task to work on
 
-## Step 1 (done)
+The backend has been updated to feature 2 more endpoints (see `docs\typescript-backend-sandbox\src\Routes\BankIdRoutes.ts`.
 
-A new endpoint has been added to the backend, providing a QR code. See `docs\typescript-backend-sandbox\src\Routes\BankIdRoutes.ts`.
-
-We want to display that QR code inside a new page: `UI/BankIdAuth.tsx`. On query error: no need to clear the session ID via `setSessionId(undefined)`. But to redirect to `/`. If it's not already the case, `LandingPage()` clears any current session ID in context, and replaces it by the new one.
-
-## Step 2
-
-Add a link (anchor) to the Landing page, navigating to the Bank ID authentication page.
+We'll update `BankIdAuth.tsx` to follow that flow:
+- When page loads, we display the QR code. Below it, let's add a button "Similate authentication". When it's clicked, the frontend calls endpoint "/bank-id/authenticating", and if the call is successful:
+  o The QR code is replaced by a message "Authenticating".
+  o The button is replaced by "Simulate completion"
+- When the "Simulate completion" button is clicked, the frontend calls endpoint "/bank-id/completing", and if the call is successful, the user is redirected to a new page we're adding: "UI/Investments.tsx", blank for now. When completion is successful, the redirection to "Investments.tsx" should not be a new item in the browsing history. That's because if the user clicks navigates back, we want them to skip the bank ID page.
