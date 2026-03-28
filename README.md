@@ -2,7 +2,7 @@
 
 ## How to run it
 
-In order to run the backend, you should create an `.env` file at the root of the project. For example:
+In order to run the frontend, you should create an `.env` file at the root of the project. For example:
 ```
 VITE_BACKEND_URL=http://localhost:3000
 ```
