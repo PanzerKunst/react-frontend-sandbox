@@ -1,0 +1,38 @@
+{
+  "name": "typescript-backend-sandbox",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "This is a sandbox for prototyping backend applications written in TypeScript. It is based on",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "npm run lint && tsx watch src/index.ts",
+    "lint": "eslint ./src/**/*.ts --report-unused-disable-directives --max-warnings 0",
+    "build": "tsc",
+    "start": "npm run build && NODE_ENV=production node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^25.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.1.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "lodash": "^4.17.23"
+  }
+}
