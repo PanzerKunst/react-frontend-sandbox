@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 
 import { useAppContext } from "../AppContext.tsx"
@@ -7,8 +8,8 @@ import { fetchSessionId } from "../Data/Backend/Apis/SessionApi.ts"
 import "./LandingPage.scss"
 
 export function LandingPage() {
-  const { sessionId, setSessionId } = useAppContext()
-  const { data } = useQuery({ queryKey: ["sessionId"], queryFn: fetchSessionId, enabled: !sessionId })
+  const { setSessionId } = useAppContext()
+  const { data } = useQuery({ queryKey: ["sessionId"], queryFn: fetchSessionId })
 
   useEffect(() => {
     if (data) {
@@ -20,7 +21,7 @@ export function LandingPage() {
     <div className="page landing">
       <main>
         <h1>Landing Page</h1>
-        {sessionId && <p>{sessionId}</p>}
+        <Link to="/bank-id">BankID Authentication</Link>
       </main>
     </div>
   )

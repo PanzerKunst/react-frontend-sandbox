@@ -1,0 +1,5 @@
+@use "/src/UI/_CommonStyles/mixins" as *;
+
+.page.bank-id-auth > main {
+  padding-inline: $min-content-inline-margin;
+}

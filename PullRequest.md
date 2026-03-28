@@ -8,4 +8,12 @@ Following a Pull Request implementation, run the "lint" script declared in packa
 
 # The task to work on
 
-Currently, `LandingPage.tsx` calls the backend endpoint to fetch a session ID. We want that to be saved in `src/AppContext.tsx`. Take example on `docs/locals/src/AppContext.tsx`. The session ID is a similar attribute to `spotifyApiAccessToken` in the example file. The session ID should be saved in local storage, so that it's not lost if the user refreshes the page.
+## Step 1 (done)
+
+A new endpoint has been added to the backend, providing a QR code. See `docs\typescript-backend-sandbox\src\Routes\BankIdRoutes.ts`.
+
+We want to display that QR code inside a new page: `UI/BankIdAuth.tsx`. On query error: no need to clear the session ID via `setSessionId(undefined)`. But to redirect to `/`. If it's not already the case, `LandingPage()` clears any current session ID in context, and replaces it by the new one.
+
+## Step 2
+
+Add a link (anchor) to the Landing page, navigating to the Bank ID authentication page.
