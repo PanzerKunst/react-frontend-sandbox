@@ -2,6 +2,7 @@ import cors from "cors"
 import express, {Router} from "express"
 import {config} from "./config.js"
 import {sessionRoutes} from "./Routes/SessionRoutes.js"
+import {bankIdRoutes} from "./Routes/BankIdRoutes.js"
 
 const app = express()
 const port = config.PORT
@@ -33,6 +34,7 @@ app.use(cors(corsOptions))
 const router = Router()
 
 sessionRoutes(router)
+bankIdRoutes(router)
 
 app.use(router)
 
