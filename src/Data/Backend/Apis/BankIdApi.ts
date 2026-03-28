@@ -17,3 +17,25 @@ export async function fetchBankIdQrCode(sessionId: string): Promise<string> {
 
   return qrCode
 }
+
+export async function postBankIdAuthenticating(sessionId: string): Promise<void> {
+  const result = await fetch(`${config.BACKEND_URL}/bank-id/authenticating`, {
+    method: "POST",
+    headers: { "X-Session-Id": sessionId }
+  })
+
+  if (!result.ok) {
+    throw new Error("Error while posting BankID authenticating")
+  }
+}
+
+export async function postBankIdCompleting(sessionId: string): Promise<void> {
+  const result = await fetch(`${config.BACKEND_URL}/bank-id/completing`, {
+    method: "POST",
+    headers: { "X-Session-Id": sessionId }
+  })
+
+  if (!result.ok) {
+    throw new Error("Error while posting BankID completing")
+  }
+}
